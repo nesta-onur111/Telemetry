@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Telemetry</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="tabs">
+        <item>Racing</item>
+        <item>Monitoring</item>
+        <item>Settings</item>
+        <item>Telemetry</item>
+    </string-array>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Engine">Engine</string>
+
+</resources>

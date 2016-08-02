@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frag_topBar"
+    android:layout_width="wrap_content"
+    android:layout_height="200dp"
+    android:layout_weight="0"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingLeft="5dp">
+
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="5dp"
+    android:baselineAligned="false">
+
+    <LinearLayout
+        android:layout_width="440dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="2dp"
+                android:paddingTop="10dp"
+                android:paddingRight="2dp">
+
+                <com.einstein_automotive.httpwp.telemetry.customViews.BarElement
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/bvMotor"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Motor"
+                    android:textSize="14dp"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="bottom|center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="2dp"
+                android:paddingTop="10dp"
+                android:paddingRight="2dp">
+
+                <com.einstein_automotive.httpwp.telemetry.customViews.BarElement
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/bvReturn"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Return"
+                    android:textSize="14dp"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="bottom|center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="2dp"
+                android:paddingTop="10dp"
+                android:paddingRight="2dp">
+
+
+                <com.einstein_automotive.httpwp.telemetry.customViews.BarElement
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/bvOil" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Oil"
+                    android:textSize="14dp"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="bottom|center" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="2dp"
+                android:paddingTop="10dp"
+                android:paddingRight="2dp">
+
+
+                <com.einstein_automotive.httpwp.telemetry.customViews.BarElement
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/bvLambda" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lambda"
+                    android:textSize="14dp"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="bottom|center" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Temperature"
+            android:id="@+id/textView"
+            android:layout_gravity="bottom|center"
+            android:textSize="16sp"
+            android:gravity="bottom|center"
+            android:enabled="true" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0"
+        android:gravity="center|bottom"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:weightSum="1">
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="@android:color/black" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="2dp"
+                android:paddingTop="10dp"
+                android:paddingRight="2dp">
+
+                <com.einstein_automotive.httpwp.telemetry.customViews.BarElement
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/bvOilPressure"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Oil"
+                    android:textSize="14dp"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="bottom|center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="2dp"
+                android:paddingTop="10dp"
+                android:paddingRight="2dp">
+
+
+                <com.einstein_automotive.httpwp.telemetry.customViews.BarElement
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/bvFuelPressure"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Fuel"
+                    android:textSize="14dp"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="bottom|center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="2dp"
+                android:paddingTop="10dp"
+                android:paddingRight="2dp">
+
+                <com.einstein_automotive.httpwp.telemetry.customViews.BarElement
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/bvWaterPressure"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Water"
+                    android:textSize="14dp"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="bottom|center" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pressure"
+            android:layout_gravity="bottom|center"
+            android:textSize="16sp"
+            android:gravity="bottom|center"
+            android:enabled="true" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0"
+        android:gravity="center|bottom"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:weightSum="1">
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="@android:color/black" />
+
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingLeft="2dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="2dp">
+
+                    <com.einstein_automotive.httpwp.telemetry.customViews.BarElement
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/bvBatteryConsumption"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Voltage"
+                        android:textSize="14dp"
+                        android:layout_gravity="bottom|center"
+                        android:gravity="bottom|center" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Battery"
+                android:layout_gravity="bottom|center"
+                android:textSize="16sp"
+                android:gravity="bottom|center"
+                android:enabled="true" />
+
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="@android:color/black" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="right">
+
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_topbar_stop"-->
+            <!--android:layout_width="240dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:src="@drawable/emergency_stop"-->
+            <!--android:layout_alignParentRight="true"/>-->
+
+
+        <ImageButton
+            android:layout_width="220dp"
+            android:layout_height="match_parent"
+            android:id="@+id/btn_TopBar_EmergencyStop"
+            android:src="@drawable/emergency_stop"
+            android:adjustViewBounds="false"
+            android:clickable="true"
+            android:scaleType="fitXY" />
+
+    </FrameLayout>
+
+
+</LinearLayout>
+
+
+</LinearLayout>

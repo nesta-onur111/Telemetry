@@ -1,0 +1,60 @@
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <view
+            class="com.einstein_automotive.httpwp.telemetry.customViews.SpeedView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/speedView"
+            android:layout_weight="1" />
+
+        <RelativeLayout
+            android:layout_width="180dp"
+            android:layout_height="wrap_content" >
+
+            <view
+                class="com.einstein_automotive.httpwp.telemetry.customViews.GForceView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/gForceView"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="N"
+                android:id="@+id/tv_racing_Gear"
+                android:textSize="120sp"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:gravity="center"
+                android:layout_alignParentStart="false"
+                android:layout_centerVertical="true" />
+
+            <view
+                class="com.einstein_automotive.httpwp.telemetry.customViews.SteeringView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/steeringView"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+
+        <view
+            class="com.einstein_automotive.httpwp.telemetry.customViews.RevolutionsView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/revolutionsView"
+            android:layout_weight="1" />
+    </LinearLayout>

@@ -1,0 +1,86 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <fragment
+            android:layout_width="wrap_content"
+            android:layout_height="180dp"
+            android:name="com.einstein_automotive.httpwp.telemetry.Fragments.TopBarBarViewed_frag"
+            android:id="@+id/topBarFragment"
+            tools:layout="@layout/fragment_topbarbarviewed" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mainLL"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Car Status:"
+                android:id="@+id/tv_car_status"
+                android:textStyle="bold"
+                android:paddingLeft="10dp"
+                android:layout_gravity="center" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/iv_temperature"
+                android:src="@drawable/temperature"
+                android:layout_marginLeft="20dp"
+                android:contentDescription="imageTemperature" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/iv_pressure"
+                android:src="@drawable/pressure"
+                android:layout_marginLeft="20dp"
+                android:contentDescription="imagePressure" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/iv_battery"
+                android:src="@drawable/battery"
+                android:layout_marginLeft="20dp"
+                android:contentDescription="imageBattery" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Disconnected!"
+                android:id="@+id/tv_Connectivity"
+                android:textColor="#ff0000"
+                android:gravity="right"
+                android:layout_gravity="center" />
+        </LinearLayout>
+
+        <com.einstein_automotive.httpwp.telemetry.tabs.SlidingTabLayout
+            android:id="@+id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+        <android.support.v4.view.ViewPager
+                    android:id="@+id/pager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+            android:longClickable="false" />
+
+    </LinearLayout>
+
+</RelativeLayout>

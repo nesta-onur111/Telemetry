@@ -1,0 +1,1845 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="6">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/border_thin">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="MS6"
+                android:layout_gravity="center_horizontal"
+                android:autoText="false"
+                android:gravity="center_horizontal"
+                android:background="#ffffffff"
+                android:paddingBottom="5dp"
+                android:textSize="18sp" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" >
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" >
+
+                            <TableLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" >
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="RPM:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_MS6_RPM"
+                                        android:inputType="none" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[?]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_MS6_RPM" />
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Speed:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_MS6_Speed"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[km/h]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_MS6_Speed" />
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Gear:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_MS6_Gear"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[°C]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_MS6_Gear" />
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Lambda:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_MS6_Lambda"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[n]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_MS6_Lambda" />
+                                </TableRow>
+                            </TableLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" >
+
+                            <TableLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" >
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Battery:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_MS6_BatteryVoltage"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[V]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_MS6_BatteryVoltage" />
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Ath:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_MS6_Ath"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[?]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_MS6_Ath" />
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="TC Switch:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_MS6_TCSwitch"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[n]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_MS6_TCSwitch" />
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="TC State:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_MS6_TCState"/>
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[n]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_MS6_TCState" />
+                                </TableRow>
+                            </TableLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="Temperature"
+                                android:padding="2dp"
+                                android:textSize="16sp"
+                                android:layout_gravity="center_horizontal" />
+
+                            <TableLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" >
+
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Motor:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_MS6_MotorTemp"
+                                        android:editable="false" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[°C]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_MS6_MotorTemp"/>
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Oil:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_MS6_OilTemp"
+                                        android:editable="false"
+                                        android:textColor="#ff0000" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[°C]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_MS6_OilTemp"/>
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Lmbda:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_MS6_LambdaTemp"
+                                        android:editable="false" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[°C]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_MS6_LambdaTemp"/>
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Fuel:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_MS6_FuelTemp"
+                                        android:editable="false" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[°C]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_MS6_FuelTemp"/>
+                                </TableRow>
+                            </TableLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="Pressure"
+                                android:padding="2dp"
+                                android:textSize="16sp"
+                                android:layout_gravity="center_horizontal" />
+
+                            <TableLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" >
+
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Oil:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_MS6_OilPressure"
+                                        android:editable="false" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[bar]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_MS6_OilPressure"/>
+                                </TableRow>
+
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Fuel:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_MS6_FuelPressure"
+                                        android:editable="false" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[bar]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_MS6_FuelPressure"/>
+                                </TableRow>
+
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Water:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_MS6_WaterPressure"
+                                        android:editable="false" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[bar]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_MS6_WaterPressure"/>
+                                </TableRow>
+
+                            </TableLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/border_thin">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="DDSC"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:background="#ffffffff"
+                android:paddingBottom="5dp"
+                android:textSize="18dp" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="G-Rate X:"
+                                android:layout_weight="1"
+                                android:gravity="right"
+                                android:textSize="16sp" />
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0"
+                                android:gravity="right"
+                                android:textSize="16sp"
+                                android:id="@+id/et_monitoring_DDSC_GForceX"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="[g]"
+                                android:layout_weight="1"
+                                android:gravity="left"
+                                android:textSize="16sp"
+                                android:id="@+id/tv_monitoring_DDSC_GForceX"/>
+                        </TableRow>
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="G-Rate Y:"
+                                android:layout_weight="1"
+                                android:gravity="right"
+                                android:textSize="16sp" />
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0"
+                                android:gravity="right"
+                                android:textSize="16sp"
+                                android:id="@+id/et_monitoring_DDSC_GForceY"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="[g]"
+                                android:layout_weight="1"
+                                android:gravity="left"
+                                android:textSize="16sp"
+                                android:id="@+id/tv_monitoring_DDSC_GForceY"/>
+                        </TableRow>
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="G-Rate:"
+                                android:layout_weight="1"
+                                android:gravity="right"
+                                android:textSize="16sp" />
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0"
+                                android:gravity="right"
+                                android:textSize="16sp"
+                                android:id="@+id/et_monitoring_DDSC_GForce"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="[g]"
+                                android:layout_weight="1"
+                                android:gravity="left"
+                                android:textSize="16sp"
+                                android:id="@+id/tv_monitoring_DDSC_GForce"/>
+                        </TableRow>
+                    </TableLayout>
+
+                </LinearLayout>
+
+
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/border_thin" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Telemetry"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="5dp"
+                    android:textSize="18dp" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="CAN State:"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:textSize="16sp" />
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="0"
+                                    android:gravity="right"
+                                    android:textSize="16sp"
+                                    android:id="@+id/et_monitoring_Telemetry_CANState"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="[n]"
+                                    android:layout_weight="1"
+                                    android:gravity="left"
+                                    android:textSize="16sp"
+                                    android:id="@+id/tv_monitoring_Telemetry_CANState"/>
+                            </TableRow>
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Alive Counter:"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:textSize="16sp" />
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="0"
+                                    android:gravity="right"
+                                    android:textSize="16sp"
+                                    android:id="@+id/et_monitoring_Telemetry_AliveCounter"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="[n]"
+                                    android:layout_weight="1"
+                                    android:gravity="left"
+                                    android:textSize="16sp"
+                                    android:id="@+id/tv_monitoring_Telemetry_AliveCounter"/>
+                            </TableRow>
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="SG CAN:"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:textSize="16sp" />
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="0"
+                                    android:gravity="right"
+                                    android:textSize="16sp"
+                                    android:id="@+id/et_monitoring_Telemetry_SGCAN"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="[n]"
+                                    android:layout_weight="1"
+                                    android:gravity="left"
+                                    android:textSize="16sp"
+                                    android:id="@+id/tv_monitoring_Telemetry_SGCAN"/>
+                            </TableRow>
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Brake Pressure Front:"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:textSize="16sp" />
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="0"
+                                    android:gravity="right"
+                                    android:textSize="16sp"
+                                    android:id="@+id/et_monitoring_Telemetry_BrakePressureFront"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="[bar]"
+                                    android:layout_weight="1"
+                                    android:gravity="left"
+                                    android:textSize="16sp"
+                                    android:id="@+id/tv_monitoring_Telemetry_BrakePressureFront"/>
+                            </TableRow>
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Brake Pressure Rear:"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:textSize="16sp" />
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="0"
+                                    android:gravity="right"
+                                    android:textSize="16sp"
+                                    android:id="@+id/et_monitoring_Telemetry_BrakePressureRear"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="[bar]"
+                                    android:layout_weight="1"
+                                    android:gravity="left"
+                                    android:textSize="16sp"
+                                    android:id="@+id/tv_monitoring_Telemetry_BrakePressureRear"/>
+                            </TableRow>
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Steering Angle:"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:textSize="16sp" />
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="0"
+                                    android:gravity="right"
+                                    android:textSize="16sp"
+                                    android:id="@+id/et_monitoring_Telemetry_SteeringAngle"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="[?]"
+                                    android:layout_weight="1"
+                                    android:gravity="left"
+                                    android:textSize="16sp"
+                                    android:id="@+id/tv_monitoring_Telemetry_SteeringAngle"/>
+                            </TableRow>
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Gear Detection:"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:textSize="16sp" />
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="0"
+                                    android:gravity="right"
+                                    android:textSize="16sp"
+                                    android:id="@+id/et_monitoring_Telemetry_GearDetection"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="[V]"
+                                    android:layout_weight="1"
+                                    android:gravity="left"
+                                    android:textSize="16sp"
+                                    android:id="@+id/tv_monitoring_Telemetry_GearDetection"/>
+                            </TableRow>
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Sensor1:"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:textSize="16sp" />
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="0"
+                                    android:gravity="right"
+                                    android:textSize="16sp"
+                                    android:id="@+id/et_monitoring_Telemetry_Sensor1"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="[V]"
+                                    android:layout_weight="1"
+                                    android:gravity="left"
+                                    android:textSize="16sp"
+                                    android:id="@+id/tv_monitoring_Telemetry_Sensor1"/>
+                            </TableRow>
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="DIP Settings:"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:textSize="16sp" />
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="0"
+                                    android:gravity="right"
+                                    android:textSize="16sp"
+                                    android:id="@+id/et_monitoring_Telemetry_DIP"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="[n]"
+                                    android:layout_weight="1"
+                                    android:gravity="left"
+                                    android:textSize="16sp"
+                                    android:id="@+id/tv_monitoring_Telemetry_DIP"/>
+                            </TableRow>
+                        </TableLayout>
+
+                    </LinearLayout>
+
+
+                </ScrollView>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="6"
+        android:background="@drawable/border_thin">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/border_thin" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Dashboard"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:background="#ffffffff"
+                android:paddingBottom="5dp"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_gravity="center_horizontal">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="State:"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:textSize="16sp" />
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:gravity="right"
+                            android:textSize="16sp"
+                            android:id="@+id/et_monitoring_Dashboard_State"
+                            android:editable="false" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="[n]"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:textSize="16sp"
+                            android:id="@+id/tv_monitoring_Dashboard_State" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Up Shift Counter:"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:textSize="16sp" />
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:gravity="right"
+                            android:textSize="16sp"
+                            android:id="@+id/et_monitoring_Dashboard_UpShiftCounter"
+                            android:editable="false" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="[n]"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:textSize="16sp"
+                            android:id="@+id/tv_monitoring_Dashboard_UpShiftCounter" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Down Shift Counter:"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:textSize="16sp" />
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:gravity="right"
+                            android:textSize="16sp"
+                            android:id="@+id/et_monitoring_Dashboard_DownShiftCounter"
+                            android:editable="false" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="[n]"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:textSize="16sp"
+                            android:id="@+id/tv_monitoring_Dashboard_DownShiftCounter" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Temp:"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:textSize="16sp" />
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:gravity="right"
+                            android:textSize="16sp"
+                            android:id="@+id/et_monitoring_Dashboard_Temp"
+                            android:editable="false" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="[°C]"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:textSize="16sp"
+                            android:id="@+id/tv_monitoring_Dashboard_Temp" />
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/border_thin">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="SCU"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="5dp"
+                    android:textSize="18dp" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/scrollView" >
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2">
+
+                            <TableLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" >
+
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="State:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp"/>
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_SCU_State"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[n]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_SCU_State" />
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Gear Sensor:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp"/>
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_SCU_GearSensorVoltage"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[V]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_SCU_GearSensorVoltage" />
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Gear:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp"/>
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_SCU_Gear"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[n]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_SCU_Gear" />
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Temp:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp"/>
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_SCU_Temp"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[°C]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_SCU_Temp" />
+                                </TableRow>
+                            </TableLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="Time Settings"
+                                android:padding="2dp"
+                                android:textSize="16sp"
+                                android:gravity="center_vertical|center_horizontal"
+                                android:layout_gravity="center" />
+
+                            <TableLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" >
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Shift Up:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_SCU_Settings_UpShift" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[ms]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_SCU_Settings_UpShift" />
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Shift Down:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_SCU_Settings_DownShift" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[ms]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_SCU_Settings_DownShift" />
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Clutch Open:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_SCU_Settings_ClutchOpen" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[ms]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_SCU_Settings_ClutchOpen" />
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Gearcut Active:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_SCU_Settings_GearcutActive" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[ms]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_SCU_Settings_GearcutActive" />
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Wait Shift Down:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_SCU_Settings_WaitDownShift" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[ms]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_SCU_Settings_WaitDownShift" />
+                                </TableRow>
+                            </TableLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </ScrollView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/border_thin">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="PDS"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="5dp"
+                    android:textSize="18dp" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/scrollView2" >
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2" >
+
+                            <TableLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" >
+
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Multiplex:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp"/>
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_PDS_Multiplex"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[n]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_PDS_Multiplex" />
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="State:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp"/>
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_PDS_State"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[n]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_PDS_State" />
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Average Current:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp"/>
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_PDS_Current"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[A]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_PDS_Current" />
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Average Voltage:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp"/>
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_PDS_Voltage"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[V]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_PDS_Voltage" />
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Average Power:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp"/>
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_PDS_Power"/>
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[W]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_PDS_Power" />
+                                </TableRow>
+                            </TableLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="Max Current Settings"
+                                android:padding="2dp"
+                                android:textSize="16sp"
+                                android:gravity="center_vertical|center_horizontal"
+                                android:layout_gravity="center" />
+
+                            <TableLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" >
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Dashboard:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_PDS_Settings_DashboardMaxCurrent" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[A]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_PDS_Settings_DashboardMaxCurrent"/>
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Telemetry:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_PDS_Settings_TelemetryMaxCurrent" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[A]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_PDS_Settings_TelemetryMaxCurrent"/>
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="DDSC:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_PDS_Settings_DDSCMaxCurrent" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[A]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_PDS_Settings_DDSCMaxCurrent"/>
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Main Relay:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_PDS_Settings_MainRelayMaxCurrent" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[A]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_PDS_Settings_MainRelayMaxCurrent"/>
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Fuel Pump:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_PDS_Settings_FuelPumpMaxCurrent" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[A]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_PDS_Settings_FuelPumpMaxCurrent"/>
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="FAN:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_PDS_Settings_FANMaxCurrent" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[A]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_PDS_Settings_FANMaxCurrent"/>
+                                </TableRow>
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" >
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Shifter:"
+                                        android:layout_weight="1"
+                                        android:gravity="right"
+                                        android:textSize="16sp" />
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="0"
+                                        android:gravity="right"
+                                        android:textSize="16sp"
+                                        android:id="@+id/et_monitoring_PDS_Settings_ShifterMaxCurrent" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="[A]"
+                                        android:layout_weight="1"
+                                        android:gravity="left"
+                                        android:textSize="16sp"
+                                        android:id="@+id/tv_monitoring_PDS_Settings_ShifterMaxCurrent"/>
+                                </TableRow>
+                            </TableLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </ScrollView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
