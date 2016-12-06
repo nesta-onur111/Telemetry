@@ -16,6 +16,7 @@ public class BarElement extends View {
 
     float value, bottom =0.0f, top = 10.0f;
     float minimum,critical;
+    boolean drawMinMax = true;
     String unit;
     Rect barRect;
     Paint barPaint, barFramePaint, textPaint, linePaint;
@@ -58,7 +59,7 @@ public class BarElement extends View {
     }
 
     public void configure(String unit, float bottom, float top, float minimum, float critical){
-        this.unit = unit;
+        this.unit = unit.replace("[", "").replace("]","");
         this.bottom = bottom;
         this.top = top;
         this.critical = critical;
@@ -115,7 +116,7 @@ public class BarElement extends View {
 
         // Draw Minimum line and Text
 
-        if (minimum >0) {
+        if (minimum > 0 && drawMinMax) {
             heightMinimum = height- (height- paddingBottom*2) * (minimum / (top))-paddingBottom;
             minimumBounds = getTextSize(minimum);
             textMinimum = String.format("%.1f", minimum) + " " + unit;
@@ -131,12 +132,12 @@ public class BarElement extends View {
             if (heightMinimum-textOffset < topLine) // Oben
                 textPosY = topLine+minimumBounds.height();
 
-            canvas.drawText(textMinimum, width - paddingRight - longestTextSize, textPosY, textPaint);
+           // canvas.drawText(textMinimum, width - paddingRight - longestTextSize, textPosY, textPaint);
         }
 
         //Draw Critical Line and Text
 
-        if (critical > 0) {
+        if (critical > 0 && drawMinMax) {
             heightCritical = height- (height- paddingBottom*2) * (critical / (top))-paddingBottom;
             criticalBounds = getTextSize(critical);
             textCritical = String.format("%.1f", critical) + " " + unit;
@@ -152,7 +153,7 @@ public class BarElement extends View {
             if (heightCritical-textOffset < topLine) // Oben
                 textPosY = topLine+criticalBounds.height();
 
-            canvas.drawText(textCritical, width - paddingRight - longestTextSize, textPosY, textPaint);
+           // canvas.drawText(textCritical, width - paddingRight - longestTextSize, textPosY, textPaint);
         }
     }
 
@@ -174,9 +175,32 @@ public class BarElement extends View {
 
     private int getColor() {
         int r, g, b;
-        float percentage = 100f * value / (critical+minimum);
+//        float percentage = 100f * value / (critical+minimum);
+//
+//        if (value < minimum){
+//            if (unit == "bar"){
+//                r = 255;
+//                g = 0;
+//                b = 0;
+//            }else{
+//                r = 0;
+//                g = 0;
+//                b = 255;
+//            }
+//
+//        }else if (percentage <= 50) {
+//            r = (int) (255 * percentage / 50);
+//            g = 255;
+//            b = 0;
+//        } else {
+//            if (percentage>100)
+//                percentage =100;
+//            r = 255;
+//            g = (int) (255 - 255 * percentage / 100);
+//            b = 0;
+//        }
 
-        if (value < minimum){
+        if (value <= minimum){
             if (unit == "bar"){
                 r = 255;
                 g = 0;
@@ -187,15 +211,13 @@ public class BarElement extends View {
                 b = 255;
             }
 
-        }else if (percentage <= 50) {
-            r = (int) (255 * percentage / 50);
+        }else if (value <= critical) {
+            r = 0;
             g = 255;
             b = 0;
         } else {
-            if (percentage>100)
-                percentage =100;
             r = 255;
-            g = (int) (255 - 255 * percentage / 100);
+            g = 0;
             b = 0;
         }
         return Color.rgb(r, g, b);

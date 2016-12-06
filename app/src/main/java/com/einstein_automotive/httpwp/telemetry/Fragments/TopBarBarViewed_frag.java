@@ -21,10 +21,10 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class TopBarBarViewed_frag extends Fragment {
 
-    BarElement barMotorTemp,barReturnTemp,barOilTemp,barLambdaTemp,barOilPressure, barWaterPressure,barFuelPressure, barBatteryConsumption;
+    BarElement barMotorTemp,barReturnTemp,barOilTemp,barFuelTemp,barLambdaTemp,barOilPressure, barWaterPressure,barFuelPressure, barBatteryConsumption,barBatteryCurrentVoltage;
     ImageButton btnEmergencyStop;
     CommunicatorStop comm;
-boolean a = false;
+    boolean barCreated = false;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_topbarbarviewed, container, false);
@@ -38,12 +38,13 @@ boolean a = false;
 
         barReturnTemp = (BarElement) getActivity().findViewById(R.id.bvReturn);
         barOilTemp = (BarElement) getActivity().findViewById(R.id.bvOil);
+        barFuelTemp = (BarElement) getActivity().findViewById(R.id.bvFuel);
         barLambdaTemp = (BarElement) getActivity().findViewById(R.id.bvLambda);
         barFuelPressure = (BarElement) getActivity().findViewById(R.id.bvFuelPressure);
         barOilPressure = (BarElement) getActivity().findViewById(R.id.bvOilPressure);
         barWaterPressure = (BarElement) getActivity().findViewById(R.id.bvWaterPressure);
         barBatteryConsumption = (BarElement) getActivity().findViewById(R.id.bvBatteryConsumption);
-
+        barBatteryCurrentVoltage = (BarElement) getActivity().findViewById(R.id.bvBatteryCurrentVoltage);
 
         btnEmergencyStop = (ImageButton) getActivity().findViewById(R.id.btn_TopBar_EmergencyStop);
         btnEmergencyStop.setOnClickListener(new View.OnClickListener() {
@@ -52,18 +53,41 @@ boolean a = false;
                 comm.emergencyStop(true);
             }
         });
-        barMotorTemp.configure("°C", 0, 120, 20, 95);
-        barReturnTemp.configure("°C", 0, 120, 0, 90);
-        barOilTemp.configure("°C",0,120,20,70);
-        barLambdaTemp.configure("°C", 0, 120, 0, 110);
-        barFuelPressure.configure("bar",0,10,2,8);
-        barOilPressure.configure("bar",0,10,2,8);
-        barWaterPressure.configure("bar",0,10,2,8);
-        barBatteryConsumption.configure("V",0,16,0,11);
-
-        a = true;
+        // (String unit, float bottom, float top, float minimum, float critical)
     }
 
+    private boolean configurateBarViews(ConcurrentHashMap<ValueName, Data> concurrentHashMap){
+
+        Data tempData = concurrentHashMap.get(ValueName.MotorTemp);
+        barMotorTemp.configure(tempData.getUnit().getName(),0,tempData.getMax(),tempData.getMin(),tempData.getCritical());
+        tempData = concurrentHashMap.get(ValueName.AirTemp);
+        barReturnTemp.configure(tempData.getUnit().getName(),0,tempData.getMax(),tempData.getMin(),tempData.getCritical());
+        tempData = concurrentHashMap.get(ValueName.OilTemp);
+        barOilTemp.configure(tempData.getUnit().getName(),0,tempData.getMax(),tempData.getMin(),tempData.getCritical());
+        // Fuel temp dazu
+        tempData = concurrentHashMap.get(ValueName.FuelTemp);
+        barFuelTemp.configure(tempData.getUnit().getName(),0,tempData.getMax(),tempData.getMin(),tempData.getCritical());
+        // eventuell unnötig
+        tempData = concurrentHashMap.get(ValueName.LambdaTemp);
+        barLambdaTemp.configure(tempData.getUnit().getName(),0,tempData.getMax(),tempData.getMin(),tempData.getCritical());
+
+        // bis min = rot, ab min = grün, ab max = rot
+        tempData = concurrentHashMap.get(ValueName.FuelPressure);
+        barFuelPressure.configure(tempData.getUnit().getName(),0,tempData.getMax(),tempData.getMin(),tempData.getCritical());
+        tempData = concurrentHashMap.get(ValueName.OilPressure);
+        barOilPressure.configure(tempData.getUnit().getName(),0,tempData.getMax(),tempData.getMin(),tempData.getCritical());
+
+        // keiner verbaut
+        tempData = concurrentHashMap.get(ValueName.WaterPressure);
+        barWaterPressure.configure(tempData.getUnit().getName(),0,tempData.getMax(),tempData.getMin(),tempData.getCritical());
+
+        // Battery Voltage dazu
+        tempData = concurrentHashMap.get(ValueName.BatteryVoltage);
+        barBatteryCurrentVoltage.configure(tempData.getUnit().getName(),0,tempData.getMax(),tempData.getMin(),tempData.getCritical());
+        tempData = concurrentHashMap.get(ValueName.BatteryVoltage);
+        barBatteryConsumption.configure(tempData.getUnit().getName(),0,tempData.getMax(),tempData.getMin(),tempData.getCritical());
+        return barCreated = true;
+    }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -87,6 +111,12 @@ boolean a = false;
         if (barOilTemp != null){
             barOilTemp.setValue(temp);
             barOilTemp.postInvalidate();
+        }
+    }
+    public void setFuelTemp(float temp){
+        if (barFuelTemp != null){
+            barFuelTemp.setValue(temp);
+            barFuelTemp.postInvalidate();
         }
     }
     public void setFuelPressure(float pressure){
@@ -124,17 +154,37 @@ boolean a = false;
             barBatteryConsumption.postInvalidate();
         }
     }
-
+    public void setBarBatteryCurrentVoltage(float watt){
+        if (barBatteryCurrentVoltage != null){
+            barBatteryCurrentVoltage.setValue(watt);
+            barBatteryCurrentVoltage.postInvalidate();
+        }
+    }
     public void updateData(ConcurrentHashMap<ValueName, Data> concurrentHashMap) {
-        if (a) {
+        if (barCreated) {
             setMotorTemp(concurrentHashMap.get(ValueName.MotorTemp).getValue());
             setReturnTemp(concurrentHashMap.get(ValueName.AirTemp).getValue());
             setOilTemp(concurrentHashMap.get(ValueName.OilTemp).getValue());
+            setFuelTemp(concurrentHashMap.get(ValueName.FuelTemp).getValue());
             setFuelPressure(concurrentHashMap.get(ValueName.FuelPressure).getValue());
             setbarOilPressure(concurrentHashMap.get(ValueName.OilPressure).getValue());
             setWaterPressure(concurrentHashMap.get(ValueName.WaterPressure).getValue());
             setLambdaTemp(concurrentHashMap.get(ValueName.LambdaTemp).getValue());
             setBatteryConsumption(concurrentHashMap.get(ValueName.BatteryVoltage).getValue());
+            setBarBatteryCurrentVoltage(concurrentHashMap.get(ValueName.BatteryVoltage).getValue());
+        }else{
+            if (configurateBarViews(concurrentHashMap)){
+                setMotorTemp(concurrentHashMap.get(ValueName.MotorTemp).getValue());
+                setReturnTemp(concurrentHashMap.get(ValueName.AirTemp).getValue());
+                setOilTemp(concurrentHashMap.get(ValueName.OilTemp).getValue());
+                setFuelTemp(concurrentHashMap.get(ValueName.FuelTemp).getValue());
+                setFuelPressure(concurrentHashMap.get(ValueName.FuelPressure).getValue());
+                setbarOilPressure(concurrentHashMap.get(ValueName.OilPressure).getValue());
+                setWaterPressure(concurrentHashMap.get(ValueName.WaterPressure).getValue());
+                setLambdaTemp(concurrentHashMap.get(ValueName.LambdaTemp).getValue());
+                setBatteryConsumption(concurrentHashMap.get(ValueName.BatteryVoltage).getValue());
+                setBarBatteryCurrentVoltage(concurrentHashMap.get(ValueName.BatteryVoltage).getValue());
+            }
         }
     }
 }

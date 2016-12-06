@@ -69,7 +69,7 @@ public class MainActivity extends FragmentActivity implements Communicator, Comm
 
     URL url;
 
-    TextView tv_Connectivity;
+    static TextView tv_Connectivity;
 
     // Debug Values:
     // 1 = Debug, 2 = Project Cars, 3 = Einstein MotorSport
@@ -281,20 +281,20 @@ public class MainActivity extends FragmentActivity implements Communicator, Comm
                 socket.setReuseAddress(true);
                 socket.setBroadcast(true);
                 socket.bind(new InetSocketAddress(port));
-                socket.setSoTimeout(5000);
+                socket.setSoTimeout(3000);
             }
 
             DatagramPacket packet = new DatagramPacket(new byte[130],130);
             socket.receive(packet);
             data = packet.getData();
             udpReceived = String.valueOf(packet.getLength());
-
+            //updateConnectivity("Data Received!");
             readByteData();
 
         }catch (SocketTimeoutException e) {
             e.printStackTrace();
             Log.e("Socket","TimeoutException");
-            updateConnectivity();
+            updateConnectivity("Data Receive Timeout!");
         } catch (SocketException e) {
             e.printStackTrace();
             Log.e("Socket",e.getMessage());
@@ -309,14 +309,14 @@ public class MainActivity extends FragmentActivity implements Communicator, Comm
         //  public Data(float value, Unit unit, float critical, float min, float max) {
         concurrentHashMap.put(ValueName.RPM, new Data(data[0]+128f+((data[1]+128f)*256f), Unit.RPM, 16000, 0, 20000));
         concurrentHashMap.put(ValueName.Speed, new Data(data[2]+128f, Unit.Speed, 0, 0, 160));
-        concurrentHashMap.put(ValueName.MotorTemp, new Data(data[3]+88f, Unit.Temperature, 80, 10, 200));
-        concurrentHashMap.put(ValueName.AirTemp, new Data(data[4]+88f, Unit.Temperature, 80, 10, 200));
-        concurrentHashMap.put(ValueName.OilTemp, new Data(data[5]+88f, Unit.Temperature, 80, 10, 200));
-        concurrentHashMap.put(ValueName.FuelTemp, new Data(data[6]+88f, Unit.Temperature, 80, 10, 200));
-        concurrentHashMap.put(ValueName.LambdaTemp, new Data(data[7]+88f, Unit.Temperature, 80, 10, 200));
-        concurrentHashMap.put(ValueName.OilPressure, new Data((data[8]+128f)/20, Unit.Pressure, 2, 2, 10));
-        concurrentHashMap.put(ValueName.WaterPressure, new Data((data[9]+128f)/20, Unit.Pressure, 2, 2, 10));
-        concurrentHashMap.put(ValueName.FuelPressure, new Data((data[10]+128f)/20, Unit.Pressure, 2, 2, 10));
+        concurrentHashMap.put(ValueName.MotorTemp, new Data(data[3]+88f, Unit.Temperature, 100, 60, 120));
+        concurrentHashMap.put(ValueName.AirTemp, new Data(data[4]+88f, Unit.Temperature, 100, 60, 120));
+        concurrentHashMap.put(ValueName.OilTemp, new Data(data[5]+88f, Unit.Temperature, 110, 60, 140));
+        concurrentHashMap.put(ValueName.FuelTemp, new Data(data[6]+88f, Unit.Temperature, 60, 10, 100));
+        concurrentHashMap.put(ValueName.LambdaTemp, new Data(data[7]+88f, Unit.Temperature, 900, 600, 1000));
+        concurrentHashMap.put(ValueName.OilPressure, new Data((data[8]+128f)/20, Unit.Pressure, 2, 0.5f, 2.5f));
+        concurrentHashMap.put(ValueName.WaterPressure, new Data((data[9]+128f)/20, Unit.Pressure, 1.2f, 0, 1.5f));
+        concurrentHashMap.put(ValueName.FuelPressure, new Data((data[10]+128f)/20, Unit.Pressure, 5, 4, 5));
         concurrentHashMap.put(ValueName.Lambda, new Data(data[11]+128f+data[12], Unit.Count, 0, 0, 0));
         concurrentHashMap.put(ValueName.BatteryVoltage, new Data((data[13]+128f+(data[14]+128f)*256f)/1000, Unit.Voltage, 0, 0, 0));
         concurrentHashMap.put(ValueName.Gear, new Data(data[16]+128f, Unit.Count, 0, 0, 0));
@@ -411,7 +411,12 @@ public class MainActivity extends FragmentActivity implements Communicator, Comm
             });
         }
 
-        if (concurrentHashMap.get(ValueName.MotorTemp).getValue() >= 80 || concurrentHashMap.get(ValueName.LambdaTemp).getValue() >= 80 || concurrentHashMap.get(ValueName.OilTemp).getValue() >= 80 || concurrentHashMap.get(ValueName.FuelTemp).getValue() >= 80 || concurrentHashMap.get(ValueName.DashboardTemp).getValue() >= 80 || concurrentHashMap.get(ValueName.SCUtemp).getValue() >= 80){
+        if (concurrentHashMap.get(ValueName.MotorTemp).getValue() >= concurrentHashMap.get(ValueName.MotorTemp).getCritical() ||
+                concurrentHashMap.get(ValueName.LambdaTemp).getValue() >= concurrentHashMap.get(ValueName.LambdaTemp).getCritical() ||
+                concurrentHashMap.get(ValueName.OilTemp).getValue() >= concurrentHashMap.get(ValueName.OilTemp).getCritical() ||
+                concurrentHashMap.get(ValueName.FuelTemp).getValue() >= concurrentHashMap.get(ValueName.FuelTemp).getCritical() ||
+                concurrentHashMap.get(ValueName.DashboardTemp).getValue() >= concurrentHashMap.get(ValueName.DashboardTemp).getCritical() ||
+                concurrentHashMap.get(ValueName.SCUtemp).getValue() >= concurrentHashMap.get(ValueName.SCUtemp).getCritical()){
             ivTemperature.post(new Runnable() {
                 @Override
                 public void run() {
@@ -427,7 +432,12 @@ public class MainActivity extends FragmentActivity implements Communicator, Comm
             });
         }
 
-        if (concurrentHashMap.get(ValueName.FuelPressure).getValue() >= 8 || concurrentHashMap.get(ValueName.OilPressure).getValue() >= 8 || concurrentHashMap.get(ValueName.WaterPressure).getValue() >= 8){
+        Data fuelPressure = concurrentHashMap.get(ValueName.FuelPressure);
+        Data oilPressure = concurrentHashMap.get(ValueName.OilPressure);
+        Data waterPressure = concurrentHashMap.get(ValueName.WaterPressure);
+        if (fuelPressure.getValue() >= fuelPressure.getCritical() || fuelPressure.getValue() <= fuelPressure.getMin() ||
+                oilPressure.getValue() >= oilPressure.getCritical() || oilPressure.getValue() <= oilPressure.getMin() ||
+                waterPressure.getValue() >= waterPressure.getCritical() || waterPressure.getValue() <= waterPressure.getMin()){
             ivPressure.post(new Runnable() {
                 @Override
                 public void run() {
@@ -446,17 +456,19 @@ public class MainActivity extends FragmentActivity implements Communicator, Comm
         tv_Connectivity.post(new Runnable() {
             @Override
             public void run() {
-                tv_Connectivity.setText(concurrentHashMap.get(ValueName.AliveCounter).getValue()+"");
+                tv_Connectivity.setText("Alive Counter: " + concurrentHashMap.get(ValueName.AliveCounter).getValue()+"");
+                tv_Connectivity.setTextColor(Color.GREEN);
             }
         });
     }
 
-    private void updateConnectivity(){
-
+    private void updateConnectivity(String msg){
+        final String message = msg;
         tv_Connectivity.post(new Runnable() {
             @Override
             public void run() {
-                tv_Connectivity.setText("Data Receive Timeout!");
+                tv_Connectivity.setText(message);
+                tv_Connectivity.setTextColor(Color.RED);
             }
         });
     }

@@ -18,11 +18,11 @@
     android:baselineAligned="false">
 
     <LinearLayout
-        android:layout_width="440dp"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:layout_width="540dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,7 +49,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Motor"
+                    android:text="Water motor"
                     android:textSize="14dp"
                     android:layout_gravity="bottom|center"
                     android:gravity="bottom|center" />
@@ -74,13 +74,37 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Return"
+                    android:text="Water radiator"
                     android:textSize="14dp"
                     android:layout_gravity="bottom|center"
                     android:gravity="bottom|center" />
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="2dp"
+                android:paddingTop="10dp"
+                android:paddingRight="2dp">
 
+
+                <com.einstein_automotive.httpwp.telemetry.customViews.BarElement
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/bvFuel" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Fuel"
+                    android:textSize="14dp"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="bottom|center" />
+
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -168,11 +192,11 @@
 
 
     <LinearLayout
-        android:layout_width="320dp"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:layout_width="340dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -292,11 +316,11 @@
     </LinearLayout>
 
         <LinearLayout
-            android:layout_width="110dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:layout_width="220dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -329,7 +353,30 @@
                         android:gravity="bottom|center" />
 
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingLeft="2dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="2dp">
 
+                    <com.einstein_automotive.httpwp.telemetry.customViews.BarElement
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/bvBatteryCurrentVoltage"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Voltage"
+                        android:textSize="14dp"
+                        android:layout_gravity="bottom|center"
+                        android:gravity="bottom|center" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
