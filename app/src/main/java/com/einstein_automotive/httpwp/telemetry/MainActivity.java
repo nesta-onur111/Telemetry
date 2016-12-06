@@ -918,7 +918,7 @@ public class MainActivity extends FragmentActivity implements Communicator, Comm
 
         @Override
         public int getCount() {
-            return 3;
+            return 2;
         }
     }
 }
