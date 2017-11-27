@@ -50,7 +50,6 @@ import java.net.InetSocketAddress;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.URL;
-import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -68,25 +67,19 @@ public class MainActivity extends FragmentActivity implements Communicator, Comm
     private ImageView ivBattery, ivTemperature, ivPressure;
 
     URL url;
-
     TextView tv_Connectivity;
 
-    // Debug Values:
-    // 1 = Debug, 2 = Project Cars, 3 = Einstein MotorSport
-    int setDataCollector = 3;
     private Point point;
 
     TopBarBarViewed_frag tbFrag;
 
     private ConcurrentHashMap<ValueName,Data>  concurrentHashMap;
-    private ConcurrentHashMap<ValueName,Data>  concurrentDebugHashMap;
     private int port;
     private byte[] recievedDataPacket;
     private String udpReceived;
     private byte[] sendData;
 
     byte[] data = new byte[130];
-    TaskDebugData taskDebugData;
 
 
     @Override
@@ -117,7 +110,6 @@ public class MainActivity extends FragmentActivity implements Communicator, Comm
 
 
         sendData = new byte[20];
-        taskDebugData = new TaskDebugData();
 
         PagerAdapter pagerAdaptervPager = (PagerAdapter) vPager.getAdapter();
         racingFrag = (Racing_frag) pagerAdaptervPager.getItem(0);
@@ -125,19 +117,7 @@ public class MainActivity extends FragmentActivity implements Communicator, Comm
         settingsFrag = (Settings_frag) pagerAdaptervPager.getItem(2);
         telemetryFrag = (Telemetry_frag) pagerAdaptervPager.getItem(3);;
         tbFrag = (TopBarBarViewed_frag) fragManager.findFragmentById(R.id.topBarFragment);
-        if (setDataCollector == 1) {
-            taskPostDebugData = new Thread (new TaskPostDebugData());
-            taskSpeed = new Thread(new TaskSpeed());
-            taskGForce = new Thread(new TaskGForce());
-            taskGear = new Thread(new TaskGear());
-            taskSteering = new Thread(new TaskSteering());
-            taskMotorTemp = new Thread(new TaskMotorTemp());
-            taskLambdaTemp = new Thread(new TaskLambdaTemp());
-            taskOilTemp = new Thread(new TaskOilTemp());
-            taskReturnTemp = new Thread(new TaskReturnTemp());
-            concurrentDebugHashMap = new ConcurrentHashMap<>();
-        }else
-            concurrentHashMap = new ConcurrentHashMap<>();
+        concurrentHashMap = new ConcurrentHashMap<>();
 
         port = 9999;
 
@@ -217,42 +197,9 @@ public class MainActivity extends FragmentActivity implements Communicator, Comm
         public void run() {
             while (!isInterrupted()) {
 
-                switch (setDataCollector) {
-                    case 1:
-                        randomData();
-                        break;
-                    case 2:
-                        projectCarsData();
-                        break;
-                    case 3:
+
                         einsteinData();
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-    }
 
-    private void debugData(){
-            if (!taskDebugData.isAlive() ) {
-                taskDebugData.start();
-            }
-    }
-
-    class TaskDebugData extends Thread {
-        @Override
-        public void run() {
-            while(true) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                for (int i = 0; i < data.length - 5; i++) {
-                    data[i] = (byte) rnd.nextInt(254);
-                }
-                readByteData();
             }
         }
     }
@@ -520,364 +467,6 @@ public class MainActivity extends FragmentActivity implements Communicator, Comm
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-            }
-        }
-    }
-    //endregion
-
-    //region ShowMode
-    Random rnd = new Random();
-    //    Thread taskSpeed = new Thread(new TaskSpeed());
-//    Thread taskGForce = new Thread(new TaskGForce());
-//    Thread taskGear = new Thread(new TaskGear());
-//    Thread taskSteering = new Thread(new TaskSteering());
-//    Thread taskMotorTemp = new Thread(new TaskMotorTemp());
-//    Thread taskLambdaTemp = new Thread(new TaskLambdaTemp());
-//    Thread taskOilTemp = new Thread(new TaskOilTemp());
-//    Thread taskReturnTemp = new Thread(new TaskReturnTemp());
-    Thread taskSpeed;
-    Thread taskGForce;
-    Thread taskGear;
-    Thread taskSteering;
-    Thread taskMotorTemp;
-    Thread taskLambdaTemp;
-    Thread taskOilTemp;
-    Thread taskReturnTemp;
-    Thread taskPostDebugData;
-
-    private void randomData() {
-        if (!taskSpeed.isAlive() && !taskGForce.isAlive() && !taskGear.isAlive() && !taskSteering.isAlive() && !taskMotorTemp.isAlive() && !taskPostDebugData.isAlive()) {
-            taskSpeed = new Thread(new TaskSpeed());
-            taskGForce = new Thread(new TaskGForce());
-            taskGear = new Thread(new TaskGear());
-            taskSteering = new Thread(new TaskSteering());
-            taskMotorTemp = new Thread(new TaskMotorTemp());
-            taskLambdaTemp = new Thread(new TaskLambdaTemp());
-            taskOilTemp = new Thread(new TaskOilTemp());
-            taskReturnTemp = new Thread(new TaskReturnTemp());
-            taskPostDebugData = new Thread(new TaskPostDebugData());
-            taskSpeed.start();
-            taskGForce.start();
-            taskGear.start();
-            taskSteering.start();
-            taskMotorTemp.start();
-            taskLambdaTemp.start();
-            taskOilTemp.start();
-            taskReturnTemp.start();
-            taskPostDebugData.start();
-        }
-
-        for (int i = 0; i <= 14000; i += 61) {
-//            if (selectedRadioButton != 2) {
-//                taskSpeed.interrupt();
-//                taskGear.interrupt();
-//                taskSteering.interrupt();
-//                taskGForce.interrupt();
-//                break;
-//            }
-//            moniFrag.updateRPM(i);
-            racingFrag.updateRPM(i);
-            //telemetryFrag.updateRPM(i);
-            concurrentDebugHashMap.put(ValueName.RPM,new Data(i,Unit.RPM,0,0,14000));
-            try {
-                Thread.sleep(20);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                return;
-            }
-        }
-        for (int i = 14000; i >= 0; i -= 61) {
-//            if (selectedRadioButton != 2) {
-//                taskSpeed.interrupt();
-//                taskGear.interrupt();
-//                taskSteering.interrupt();
-//                taskGForce.interrupt();
-//                break;
-//            }
-//            moniFrag.updateRPM(i);
-            racingFrag.updateRPM(i);
-          //  telemetryFrag.updateRPM(i);
-            concurrentDebugHashMap.put(ValueName.RPM, new Data(i, Unit.RPM, 0, 0, 14000));
-            try {
-                Thread.sleep(20);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                return;
-            }
-        }
-    }
-
-    class TaskSpeed extends Thread {
-        @Override
-        public void run() {
-            while (!isInterrupted()) {
-                for (int i = 0; i <= 140; i++) {
-//                    moniFrag.updateSpeed(i);
-                    racingFrag.updateSpeed(i);
-                   // telemetryFrag.updateSpeed(i);
-                    concurrentDebugHashMap.put(ValueName.Speed, new Data(i, Unit.Speed, 0, 0, 140));
-                    try {
-                        Thread.sleep(20);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        interrupt();
-                        return;
-                    }
-                }
-                for (int i = 140; i >= 0; i--) {
-//                    moniFrag.updateSpeed(i);
-                    racingFrag.updateSpeed(i);
-                 //   telemetryFrag.updateSpeed(i);
-                    concurrentDebugHashMap.put(ValueName.Speed, new Data(i, Unit.Speed, 0, 0, 140));
-                    try {
-                        Thread.sleep(20);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        interrupt();
-                        return;
-                    }
-                }
-            }
-        }
-    }
-
-    class TaskGear extends Thread {
-        @Override
-        public void run() {
-            while (!isInterrupted()) {
-                for (int i = 0; i <= 7; i++) {
-//                    moniFrag.updateGear(i);
-                    racingFrag.updateGear(i);
-                   // telemetryFrag.updateGear(i);
-                    concurrentDebugHashMap.put(ValueName.Gear, new Data(i, Unit.Count, 0, 0, 7));
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        interrupt();
-                        return;
-                    }
-                }
-                for (int i = 7; i >= 0; i--) {
-//                    moniFrag.updateGear(i);
-                    racingFrag.updateGear(i);
-                   // telemetryFrag.updateGear(i);
-                    concurrentDebugHashMap.put(ValueName.Gear, new Data(i, Unit.Count, 0, 0, 7));
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        interrupt();
-                        return;
-                    }
-                }
-            }
-        }
-    }
-
-    class TaskSteering extends Thread {
-        @Override
-        public void run() {
-
-            while (!isInterrupted()) {
-                for (int i = 0; i <= 170; i++) {
-//                    moniFrag.updateSteeringAngle(i);
-                    racingFrag.updateSteeringAngle(i);
-                  //  telemetryFrag.updateSteering(i);
-                    concurrentDebugHashMap.put(ValueName.Steering, new Data(i, Unit.Angle, 0, -200, 200));
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        interrupt();
-                        return;
-                    }
-                }
-                for (int i = 170; i >= -170; i--) {
-//                    moniFrag.updateSteeringAngle(i);
-                    racingFrag.updateSteeringAngle(i);
-//                    telemetryFrag.updateSteering(i);
-                    concurrentDebugHashMap.put(ValueName.Steering, new Data(i, Unit.Angle, 0, -200, 200));
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        interrupt();
-                        return;
-                    }
-                }
-                for (int i = -170; i <= 0; i++) {
-//                    moniFrag.updateSteeringAngle(i);
-                    racingFrag.updateSteeringAngle(i);
-//                    telemetryFrag.updateSteering(i);
-                    concurrentDebugHashMap.put(ValueName.Steering, new Data(i, Unit.Angle, 0, -200, 200));
-                    try {
-                        Thread.sleep(2);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        interrupt();
-                        return;
-                    }
-                }
-            }
-
-        }
-    }
-
-    class TaskGForce extends Thread {
-        @Override
-        public void run() {
-            while (!isInterrupted()) {
-//                moniFrag.updateGForce(null);
-                racingFrag.updateGForce(null, true);
-                for (int i = 0; i <= 40; i++) {
-                    float min = -5.0f;
-                    float max = 5.0f;
-
-                    float x = rnd.nextFloat() * (max - min) + min;
-                    float y = rnd.nextFloat() * (max - min) + min;
-                    point = new Point(x, y);
-//                    moniFrag.updateGForce(point);
-                    racingFrag.updateGForce(point, false);
-
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        interrupt();
-                        return;
-                    }
-                }
-//                moniFrag.updateGForce(null);
-                racingFrag.updateGForce(null, true);
-            }
-        }
-    }
-
-    class TaskMotorTemp extends Thread {
-        @Override
-        public void run() {
-            while (!isInterrupted()) {
-                for (int i = 0; i <= 120; i++) {
-                    i += rnd.nextInt(9) / 10;
-                    tbFrag.setMotorTemp(i);
-                    try {
-                        Thread.sleep(50);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        interrupt();
-                        return;
-                    }
-                }
-                for (int i = 120; i >= 0; i--) {
-                    tbFrag.setMotorTemp(i);
-                    try {
-                        Thread.sleep(50);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        interrupt();
-                        return;
-                    }
-                }
-            }
-        }
-    }
-
-    class TaskReturnTemp extends Thread {
-        @Override
-        public void run() {
-            while (!isInterrupted()) {
-                for (int i = 0; i <= 90; i++) {
-                    tbFrag.setReturnTemp(i);
-                    try {
-                        Thread.sleep(70);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        interrupt();
-                        return;
-                    }
-                }
-                for (int i = 90; i >= 0; i--) {
-                    tbFrag.setReturnTemp(i);
-                    try {
-                        Thread.sleep(90);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        interrupt();
-                        return;
-                    }
-                }
-            }
-        }
-    }
-
-    class TaskOilTemp extends Thread {
-        @Override
-        public void run() {
-            while (!isInterrupted()) {
-                for (int i = 0; i <= 100; i++) {
-                    tbFrag.setOilTemp(i);
-                    try {
-                        Thread.sleep(65);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        interrupt();
-                        return;
-                    }
-                }
-                for (int i = 100; i >= 0; i--) {
-                    tbFrag.setOilTemp(i);
-                    try {
-                        Thread.sleep(55);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        interrupt();
-                        return;
-                    }
-                }
-            }
-        }
-    }
-
-    class TaskLambdaTemp extends Thread {
-        @Override
-        public void run() {
-            while (!isInterrupted()) {
-                for (int i = 0; i <= 120; i++) {
-                    tbFrag.setLambdaTemp(i);
-                    try {
-                        Thread.sleep(40);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        interrupt();
-                        return;
-                    }
-                }
-                for (int i = 120; i >= 0; i--) {
-                    tbFrag.setLambdaTemp(i);
-                    try {
-                        Thread.sleep(120);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        interrupt();
-                        return;
-                    }
-                }
-            }
-        }
-    }
-
-    private class TaskPostDebugData extends Thread {
-        @Override
-        public void run() {
-            while (!isInterrupted()) {
-                try {
-                    sleep(50);
-                    telemetryFrag.updateData(concurrentDebugHashMap);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
             }
         }
     }
